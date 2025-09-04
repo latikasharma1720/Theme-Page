@@ -1,0 +1,159 @@
+:root{
+  --primary:#12343B;   /* deep green */
+  --accent:#F28C28;    /* warm orange */
+  --gold:#F0B429;      /* mustard */
+  --ink:#222;          /* body text */
+  --muted:#6B7276;     /* secondary text */
+  --paper:#FFFFFF;     /* white background */
+  --border:#E9ECEF;    /* subtle lines */
+}
+
+/* Base reset & layout for sticky footer */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family: Arial, sans-serif;
+  line-height:1.6;
+  color:var(--ink);
+  background:var(--paper);
+  display:flex;                /* flex layout */
+  flex-direction:column;
+  min-height:100vh;
+}
+main{flex:1}                   /* pushes footer to bottom */
+
+/* Skip link */
+.skip-link{
+  position:absolute;left:-999px;top:0;
+  padding:10px 14px;background:#fffbcc;color:#000;border-radius:6px;z-index:1000
+}
+.skip-link:focus{left:10px}
+
+/* Header / Nav (minimal) */
+header{
+  background:var(--paper);
+  border-bottom:1px solid var(--border);
+}
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4px 24px;   /* 🔽 reduce vertical padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-section{display:flex;align-items:center;gap:12px}
+.brand-logo {
+  height: 100px;        
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.logo-text{font-size:1.6rem;font-weight:800;color:var(--ink);line-height:1}
+.campus-text{font-size:1rem;color:var(--accent);margin-left:6px;line-height:1}
+
+.nav-links{list-style:none;display:flex;gap:22px}
+.nav-links a{
+  color:var(--ink);
+  text-decoration:none;
+  font-weight:500;
+  padding:8px 0;
+  transition:color .2s ease
+}
+
+.nav-links .btn{
+  background:var(--primary);color:#fff;
+  padding:8px 16px;border-radius:10px;font-weight:700;
+  transition:background .2s ease
+}
+.nav-links .btn:hover{background:var(--accent)}
+
+/* Slim announcement bar */
+.partnership-banner{
+  background:var(--gold);color:var(--primary);
+  border-bottom:1px solid var(--border);
+}
+.partnership-content{
+  max-width:1200px;margin:0 auto;padding:8px 24px;
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  font-weight:700;letter-spacing:.2px
+}
+.gold-dot{width:8px;height:8px;background:var(--primary);border-radius:50%;display:inline-block}
+
+/* Hero — flat, clean */
+.hero{background:var(--paper)}
+.hero-content{
+  max-width:900px;margin:0 auto;
+  padding:72px 24px;
+  text-align:center;color:var(--primary);
+}
+.hero h1{font-size:3rem;margin-bottom:14px}
+.hero p{color:var(--muted);margin-bottom:24px;font-size:1.08rem}
+
+.hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero-buttons .btn{
+  padding:12px 22px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:1rem;
+  border:2px solid transparent;
+  transition:all .2s ease
+}
+.btn.primary{
+    background:var(--accent);color:#1e1200;border-color:var(--accent)}
+.btn.primary:hover{background:transparent;color:var(--accent);border-color:var(--accent)}
+.btn.secondary{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+.btn.secondary:hover{background:var(--primary);color:#fff}
+
+/* Features — simple cards */
+.features{padding:56px 24px;background:var(--paper)}
+.features h2{max-width:1200px;margin:0 auto 28px;color:var(--primary);font-size:2.2rem;text-align:center}
+
+.feature-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px
+}
+.feature-card{
+  background:#fff;border:1px solid var(--border);border-radius:16px;
+  padding:22px 20px;text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.03);
+  transition:transform .15s ease, box-shadow .15s ease
+}
+.feature-card:hover{transform:translateY(-3px);box-shadow:0 10px 16px rgba(0,0,0,.06)}
+.feature-icon{
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 14px;
+  background:radial-gradient(circle at 40% 40%, var(--gold), var(--primary));
+  color:#fff;font-size:1.4rem
+}
+.feature-card h3{color:var(--primary);margin-bottom:8px;font-size:1.15rem}
+.feature-card p{color:var(--muted)}
+
+/* Footer — text only, pinned at bottom by flex layout */
+footer{
+  background:var(--primary);
+  color:#fff;
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:24px 20px;
+  margin-top:40px;           /* breathing room above footer */
+}
+footer p{font-size:.95rem;opacity:.9}
+
+/* Focus styles */
+a:focus-visible,button:focus-visible{
+  outline:3px solid var(--gold);outline-offset:2px;border-radius:8px
+}
+
+/* Responsive */
+@media (max-width:768px){
+  .navbar{flex-direction:column;gap:10px}
+  .nav-links{gap:16px}
+  .brand-logo{height:100px}
+  .hero h1{font-size:2.3rem}
+  .hero-buttons{flex-direction:column;align-items:center}
+  .hero-buttons .btn{width:200px}
+}
