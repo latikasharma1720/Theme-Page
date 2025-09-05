@@ -11,16 +11,17 @@
 /* Base reset & layout for sticky footer */
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%}
+html{scroll-behavior:smooth}
 body{
   font-family: Arial, sans-serif;
   line-height:1.6;
   color:var(--ink);
   background:var(--paper);
-  display:flex;                /* flex layout */
+  display:flex;
   flex-direction:column;
   min-height:100vh;
 }
-main{flex:1}                   /* pushes footer to bottom */
+main{flex:1}
 
 /* Skip link */
 .skip-link{
@@ -29,7 +30,7 @@ main{flex:1}                   /* pushes footer to bottom */
 }
 .skip-link:focus{left:10px}
 
-/* Header / Nav (minimal) */
+/* Header / Nav */
 header{
   background:var(--paper);
   border-bottom:1px solid var(--border);
@@ -37,7 +38,7 @@ header{
 .navbar {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4px 24px;   /* 🔽 reduce vertical padding */
+  padding: 4px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,16 +46,12 @@ header{
 }
 
 .logo-section{display:flex;align-items:center;gap:12px}
-.brand-logo {
-  height: 100px;        
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
+.brand-logo {height:100px;width:auto;display:block;object-fit:contain}
 .logo-text{font-size:1.6rem;font-weight:800;color:var(--ink);line-height:1}
 .campus-text{font-size:1rem;color:var(--accent);margin-left:6px;line-height:1}
 
-.nav-links{list-style:none;display:flex;gap:22px}
+/* Nav list */
+.nav-links{list-style:none;display:flex;gap:22px;align-items:center}
 .nav-links a{
   color:var(--ink);
   text-decoration:none;
@@ -62,6 +59,7 @@ header{
   padding:8px 0;
   transition:color .2s ease
 }
+.nav-links a:hover{color:var(--primary)}
 
 .nav-links .btn{
   background:var(--primary);color:#fff;
@@ -69,6 +67,21 @@ header{
   transition:background .2s ease
 }
 .nav-links .btn:hover{background:var(--accent)}
+
+/* Mobile menu toggle button */
+.menu-toggle{
+  padding:8px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fff;
+  color:var(--ink);
+  cursor:pointer;
+  font-weight:600;
+}
+.menu-toggle:hover{background:#f7f7f7}
+
+/* Make [hidden] actually hide on small screens */
+#site-nav[hidden]{display:none}
 
 /* Slim announcement bar */
 .partnership-banner{
@@ -82,7 +95,7 @@ header{
 }
 .gold-dot{width:8px;height:8px;background:var(--primary);border-radius:50%;display:inline-block}
 
-/* Hero — flat, clean */
+/* Hero */
 .hero{background:var(--paper)}
 .hero-content{
   max-width:900px;margin:0 auto;
@@ -102,13 +115,12 @@ header{
   border:2px solid transparent;
   transition:all .2s ease
 }
-.btn.primary{
-    background:var(--accent);color:#1e1200;border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:#1e1200;border-color:var(--accent)}
 .btn.primary:hover{background:transparent;color:var(--accent);border-color:var(--accent)}
 .btn.secondary{background:transparent;color:var(--primary);border:2px solid var(--primary)}
 .btn.secondary:hover{background:var(--primary);color:#fff}
 
-/* Features — simple cards */
+/* Features — cards */
 .features{padding:56px 24px;background:var(--paper)}
 .features h2{max-width:1200px;margin:0 auto 28px;color:var(--primary);font-size:2.2rem;text-align:center}
 
@@ -132,16 +144,51 @@ header{
 .feature-card h3{color:var(--primary);margin-bottom:8px;font-size:1.15rem}
 .feature-card p{color:var(--muted)}
 
-/* Footer — text only, pinned at bottom by flex layout */
+/* Auth sections (Sign Up / Login) */
+.auth-section{
+  max-width:400px;
+  margin:40px auto;
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+.auth-section h2{
+  margin-bottom:16px;
+  color:var(--primary);
+  text-align:center;
+}
+.auth-section form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.auth-section input{
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:1rem;
+}
+.auth-section .btn{padding:10px;font-size:1rem}
+
+/* Footer */
 footer{
   background:var(--primary);
   color:#fff;
   border-top:1px solid var(--border);
   text-align:center;
   padding:24px 20px;
-  margin-top:40px;           /* breathing room above footer */
+  margin-top:40px;
 }
 footer p{font-size:.95rem;opacity:.9}
+
+/* Error text for validation */
+.error{
+  color:#c0392b;
+  margin-top:8px;
+  font-size:.95rem;
+}
 
 /* Focus styles */
 a:focus-visible,button:focus-visible{
@@ -156,4 +203,10 @@ a:focus-visible,button:focus-visible{
   .hero h1{font-size:2.3rem}
   .hero-buttons{flex-direction:column;align-items:center}
   .hero-buttons .btn{width:200px}
+}
+
+/* Desktop override: nav visible, hide burger */
+@media (min-width:768px){
+  #site-nav{display:flex !important}
+  #menu-btn{display:none}
 }

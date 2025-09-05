@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - MastoRide</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
+    <nav class="navbar" aria-label="Primary">
+      <div class="logo-section">
+        <a href="index.html"><img src="images/Logo.png" alt="MastoRide" class="brand-logo" /></a>
+      </div>
+      <button id="menu-btn" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">☰ Menu</button>
+      <ul id="site-nav" class="nav-links" hidden>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="how.html">How It Works</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="btn" href="signup.html">Sign Up</a></li>
+        <li><a class="btn" href="login.html" aria-current="page">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="auth-section" aria-label="Login">
+      <h1>Login</h1>
+      <form id="login" novalidate>
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="Enter email" required />
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Enter password" required />
+        <button type="submit" class="btn">Login</button>
+        <p id="login-err" class="error" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 MastoRide. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
