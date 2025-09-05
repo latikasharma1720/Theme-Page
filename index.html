@@ -7,52 +7,45 @@
   <link rel="stylesheet" href="main.css" />
 </head>
 <body>
-  <!-- Skip link for accessibility -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
   <header>
     <nav class="navbar" aria-label="Primary">
       <div class="logo-section">
         <a href="index.html">
-          <!-- NOTE: Case-sensitive filename -->
           <img src="images/Logo.png" alt="MastoRide" class="brand-logo" />
         </a>
       </div>
 
-      <ul class="nav-links">
-        <li class="nav-logo"></li>
+      <button id="menu-btn" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">☰ Menu</button>
+
+      <ul id="site-nav" class="nav-links" hidden>
         <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="#">How It Works</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a class="btn" href="#">SignUp</a></li>
-        <li><a class="btn" href="#">Login</a></li>
+        <li><a href="how.html">How It Works</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="btn" href="signup.html">Sign Up</a></li>
+        <li><a class="btn" href="login.html">Login</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Main content grows to push footer down -->
   <main id="main">
-    <!-- Banner -->
-    <section class="partnership-banner" aria-label="PFW-only notice">
-      <div class="partnership-content">
-      </div>
+    <section class="partnership-banner" aria-label="PFW-only notice" id="home">
+      <div class="partnership-content"></div>
     </section>
 
-    <!-- Hero -->
     <section class="hero" aria-label="Welcome">
       <div class="hero-content">
         <h1>Welcome to MastoRide</h1>
         <p>Get affordable rides from campus to anywhere off-campus. Exclusively for students with a valid PFW Email.</p>
         <div class="hero-buttons">
-          <a href="#" class="btn primary">Book a Ride</a>
-          <a href="#" class="btn secondary">Learn More</a>
+          <a href="signup.html" class="btn primary">Book a Ride</a>
+          <a href="how.html" class="btn secondary">Learn More</a>
         </div>
       </div>
     </section>
 
-    <!-- Features -->
+    <section class="features" aria-label="How It Works">
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon">💰</div>
@@ -73,11 +66,12 @@
     </section>
   </main>
 
-  <!-- Footer (fixed at bottom via flex layout) -->
   <footer>
     <div class="footer-content">
-      <p>&copy; 2025 MastoRide. All rights reserved. | Affordable rides exclusively for PFW students</p>
+      <p>&copy; 2025 MastoRide. All rights reserved.</p>
     </div>
   </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
